@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,9 @@ namespace WinUIApp1
             if (selected is not null && selected.Tag is not null)
             {
                 Debug.WriteLine(selected.Tag as string);
-                contentFrame.Navigate(Type.GetType(selected.Tag.ToString()), selected.Content);
+                contentFrame
+                    .Navigate(Type.GetType(selected.Tag.ToString()), selected.Content,
+                    new DrillInNavigationTransitionInfo());
                 nvMenu.Header = selected.Content;
                 nvMenu.SelectedItem = selected;
             }

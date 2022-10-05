@@ -9,10 +9,29 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="DepartementsPage"
-                   VerticalAlignment="Center"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--App bar-->
+        <CommandBar Background="Transparent" IsOpen="False"
+                    DefaultLabelPosition="Collapsed" Grid.Row="0">
+            <AppBarButton Icon="AddFriend" Label="Add" Language="fr" 
+                          ToolTipService.Placement="Bottom" ToolTipService.ToolTip="Add departements"/>
+            <AppBarButton Icon="Edit" Label="Edit" Language="fr"
+                          ToolTipService.Placement="Bottom" ToolTipService.ToolTip="Update the selected departement"/>
+            <AppBarButton Icon="Delete" Label="Remove" Language="fr"
+                          ToolTipService.Placement="Bottom" ToolTipService.ToolTip="Remove departements"/>
+        </CommandBar>
+        
+        <!--Main part-->
+        <Grid>
+            <TextBlock Text="Departements"
+                   VerticalAlignment="Top"
                    HorizontalAlignment="Center"
                    FontSize="20"
                    FontWeight="ExtraBold"/>
+        </Grid>
     </Grid>
 </Page>
