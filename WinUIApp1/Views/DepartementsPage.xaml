@@ -18,7 +18,8 @@
         <!--App bar-->
         <CommandBar Background="Transparent" IsOpen="False"
                     DefaultLabelPosition="Collapsed" Grid.Row="0">
-            <AppBarButton Icon="AddFriend" Label="Add" Language="fr" 
+            <AppBarButton x:Name="AddBtn" Icon="AddFriend" Label="Add" Language="fr"
+                          Click="AddBtn_Click"
                           ToolTipService.Placement="Bottom" ToolTipService.ToolTip="Add departements"/>
         </CommandBar>
         

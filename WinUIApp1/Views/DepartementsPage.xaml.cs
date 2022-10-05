@@ -17,6 +17,7 @@ using Windows.Foundation.Collections;
 using Windows.Foundation.Metadata;
 using WinUIApp1.Models;
 using WinUIApp1.Views.DetailsPages;
+using WinUIApp1.Views.OperationPage;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -79,10 +80,16 @@ namespace WinUIApp1.Views
             if (selected != null)
             {
                 var pages = typeof(DepartementDetailsPage).FullName;
-                depsDetails.Navigate(Type.GetType(pages),selected,
+                depsDetails.Navigate(Type.GetType(pages), selected,
                     new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromLeft });
                 depsList.SelectedItem = selected;
             }
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("ForwardConnectedAnimation", this);
+            Frame.Navigate(typeof(AddDepartementPage), null, new SuppressNavigationTransitionInfo());
         }
     }
 }

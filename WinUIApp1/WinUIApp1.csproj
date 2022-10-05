@@ -16,6 +16,7 @@
     <None Remove="Views\DepartementsPage.xaml" />
     <None Remove="Views\DetailsPages\DepartementDetailsPage.xaml" />
     <None Remove="Views\EmployeePage.xaml" />
+    <None Remove="Views\OperationPage\AddDepartementPage.xaml" />
     <None Remove="Views\PaymentPage.xaml" />
   </ItemGroup>
 
@@ -65,6 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\DetailsPages\DepartementDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\OperationPage\AddDepartementPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
