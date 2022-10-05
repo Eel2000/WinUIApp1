@@ -12,6 +12,9 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\john-doe.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Views\DashboardPage.xaml" />
     <None Remove="Views\DepartementsPage.xaml" />
     <None Remove="Views\DetailsPages\DepartementDetailsPage.xaml" />

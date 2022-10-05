@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Foundation.Metadata;
+using WinUIApp1.Models;
 using WinUIApp1.Views.DialogsPages;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -54,6 +55,9 @@ namespace WinUIApp1.Views.OperationPage
             this.loader.IsEnabled = true;
             loader.Visibility = Visibility.Visible;
             await Task.Delay(TimeSpan.FromSeconds(5));
+
+            var date = DateTime.Parse(DateCreation.Date.ToString());
+            Departement departement = new(Name.Text, Description.Text, int.Parse(EmpNumber.Text), date);
 
             this.loader.IsEnabled = true;
             loader.Visibility = Visibility.Collapsed;

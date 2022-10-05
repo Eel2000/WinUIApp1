@@ -18,7 +18,7 @@
         <!--App bar-->
         <CommandBar Background="Transparent" IsOpen="False"
                     DefaultLabelPosition="Collapsed" Grid.Row="0">
-            <AppBarButton x:Name="AddBtn" Icon="AddFriend" Label="Add" Language="fr"
+            <AppBarButton x:Name="AddBtn" Icon="Add" Label="Add" Language="fr"
                           Click="AddBtn_Click"
                           ToolTipService.Placement="Bottom" ToolTipService.ToolTip="Add departements"/>
         </CommandBar>
@@ -50,11 +50,11 @@
                         <StackPanel Margin="0,12,0,12" AutomationProperties.Name="{x:Bind Name}">
                             <TextBlock Text="{x:Bind Name}" Style="{ThemeResource SubtitleTextBlockStyle}" HorizontalAlignment="Left" Margin="0,0,0,6"/>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Views: " Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="Bold"/>
+                                <TextBlock Text="Employees: " Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="Bold"/>
                                 <TextBlock Text="{x:Bind EmployeNumber}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="5,0,0,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Likes: " Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="Bold"/>
+                                <TextBlock Text="Create on: " Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="Bold"/>
                                 <TextBlock Text="{x:Bind CreationDate}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="5,0,0,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">

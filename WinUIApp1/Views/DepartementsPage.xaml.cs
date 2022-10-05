@@ -80,6 +80,7 @@ namespace WinUIApp1.Views
             if (selected != null)
             {
                 var pages = typeof(DepartementDetailsPage).FullName;
+                selectedDepartement = selected;
                 depsDetails.Navigate(Type.GetType(pages), selected,
                     new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromLeft });
                 depsList.SelectedItem = selected;

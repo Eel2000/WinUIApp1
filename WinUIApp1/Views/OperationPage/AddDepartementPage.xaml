@@ -32,7 +32,9 @@
                 <TextBox x:Name="Name" Header= "Name" Margin="0,24,0,0" MaxLength="32" Width="400" HorizontalAlignment="Left" InputScope="PersonalFullName"/>
                 <TextBox x:Name="EmpNumber" Header="Number of Employee" Margin="0,24,0,0" MaxLength="15" Width="400" HorizontalAlignment="Left" InputScope="TelephoneNumber" />
                 <DatePicker x:Name="DateCreation" Header="Creation Date" Margin="0,24,0,0" Width="400" HorizontalAlignment="Left"/>
-                <RichEditBox x:Name="Description" Header="Departement description" PlaceholderText="The description fo the departement" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" InputScope="EmailNameOrAddress" />
+                <TextBox x:Name="Description" Header="Departement description" PlaceholderText="The description fo the departement" 
+                         Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" InputScope="EmailNameOrAddress" 
+                         TextWrapping="Wrap" AcceptsReturn="True"/>
 
                 <ProgressBar x:Name="loader" Visibility="Collapsed" Width="130" Margin="0,20,0,20" IsIndeterminate="True" ShowPaused="False" ShowError="False" />
 
