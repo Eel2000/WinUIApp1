@@ -6,17 +6,112 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemChromeWhiteColor}">
 
-    <Grid>
-        <TextBlock Text="Employee details"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Style="{StaticResource DisplayTextBlockStyle}"/>
+    <ScrollViewer VerticalScrollMode="Auto">
+        <StackPanel VerticalAlignment="Center" Width="600">
+            <Grid BorderBrush="Gray" BorderThickness="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <!--Header-->
+                <StackPanel Background="{StaticResource AppBarBackgroundThemeBrush}" Height="200" Orientation="Horizontal">
+                    <PersonPicture Initials="JD" Margin="20,0" Background="DarkGray"/>
+                    <StackPanel  VerticalAlignment="Center">
+                        <TextBlock Text="John Doe" FontWeight="ExtraBlack" FontSize="25"/>
+                        <TextBlock Text="IT departement" FontWeight="Light" FontSize="18"/>
+                    </StackPanel>
+                </StackPanel>
 
-        <TextBlock Text="{x:Bind employee.FirstName}"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Style="{StaticResource CaptionTextBlockStyle}"/>
-    </Grid>
+                <!--Border-->
+                <Border BorderBrush="Gray" VerticalAlignment="Bottom" BorderThickness="1" Width="900" HorizontalAlignment="Stretch"/>
+                <ScrollViewer Grid.Row="1" IsEnabled="True" VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <!--Contact-->
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Margin="20">
+                                <TextBlock Text="Contacts" FontWeight="ExtraBlack" FontSize="17"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1">
+                                <StackPanel>
+                                    <TextBlock Text="Email Personal" Margin="20,0,0,0"/>
+                                    <TextBlock Text="john.doe@gmail.com" Margin="20,0,0,0" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,20,0,0">
+                                    <TextBlock Text="Telephone" Margin="20,0,0,0"/>
+                                    <TextBlock Text="(243) 891-490-441" Margin="20,0,0,0" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,20,0,0">
+                                    <TextBlock Text="Home address" Margin="20,0,0,0"/>
+                                    <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
+                                        <Paragraph>
+                                            894 Lubumbashi
+                                        </Paragraph>
+                                        <Paragraph>
+                                            C.Lubumbashi, Haut-katanga, D.R Congo
+                                        </Paragraph>
+                                    </RichTextBlock>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <!--border-->
+                        <Border Grid.Row="1" BorderBrush="WhiteSmoke" Width="800" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,20,0,0"/>
+
+                        <!--personal info-->
+                        <Grid Grid.Row="2" Margin="0,20,0,20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                                <TextBlock Text="Personal informations" FontWeight="ExtraBlack" FontSize="17"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1">
+                                <StackPanel>
+                                    <TextBlock Text="Birth day" Margin="20,0,0,0"/>
+                                    <TextBlock Text="Thursday, 6 October 2022" Margin="20,0,0,0" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,20,0,0">
+                                    <TextBlock Text="Work ID" Margin="20,0,0,0"/>
+                                    <TextBlock Text="N° 8978" Margin="20,0,0,0" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,20,0,0">
+                                    <TextBlock Text="Experience" Margin="20,0,0,0"/>
+                                    <TextBlock Text="Software developer since 1998 at Genesis.corp" Margin="20,0,0,0" FontWeight="Bold"/>
+                                </StackPanel>
+                                <StackPanel Margin="0,20,0,0">
+                                    <TextBlock Text="Skills" Margin="20,0,0,0"/>
+                                    <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
+                                        <Paragraph>
+                                            C#, C++,C, .Net, WPF,AValonia,MAUI,Xamarin,Kotlin(Jetpack Compos),Javascript(*)
+                                        </Paragraph>
+                                        <Paragraph>
+                                            C.Lubumbashi, Haut-katanga, D.R Congo
+                                        </Paragraph>
+                                    </RichTextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
