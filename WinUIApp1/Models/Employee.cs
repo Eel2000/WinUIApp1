@@ -41,5 +41,6 @@ namespace WinUIApp1.Models
         public string Telephone { get; set; }
         public string EmailAdresse { get; set; }
         public string City { get; set; }
+        public string Adresse { get; set; }
     }
 }

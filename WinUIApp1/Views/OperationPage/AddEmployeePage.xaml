@@ -22,6 +22,7 @@
             <TextBox x:Name="Email" Header="Email" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" InputScope="EmailNameOrAddress" />
             <TextBox x:Name="Telephon" Header="Telephone" PlaceholderText="phone number with the country code eg:(243)" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" InputScope="EmailNameOrAddress" />
             <DatePicker x:Name="BirthDay" Header="Birthday" Margin="0,24,0,0" Width="400" HorizontalAlignment="Left"/>
+            <TextBox x:Name="Address" Header="Address" PlaceholderText="Address" Margin="0,24,0,0" MaxLength="50" Width="400" HorizontalAlignment="Left" InputScope="EmailNameOrAddress" />
             <StackPanel Margin="0,24,0,0">
                 <TextBlock Text="Has department chef ?"/>
                 <CheckBox x:Name="IsDepChef" Width="40" HorizontalAlignment="Left" />
