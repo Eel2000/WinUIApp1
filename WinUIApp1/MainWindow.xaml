@@ -8,15 +8,15 @@
     mc:Ignorable="d">
 
     <NavigationView x:Name="nvMenu" SelectionChanged="nvMenu_SelectionChanged"
-                    IsSettingsVisible="False" IsBackButtonVisible="Collapsed"
-                    IsBackEnabled="True">
+                    IsSettingsVisible="False" IsBackButtonVisible="Visible"
+                    IsBackEnabled="True" CornerRadius="0" BackRequested="nvMenu_BackRequested">
         <NavigationView.MenuItems>
             <NavigationViewItem x:Name="Dashboard" Icon="Home" Content="Dashboard" ToolTipService.ToolTip="dashboard" Tag="WinUIApp1.Views.DashboardPage" IsSelected="True"/>
             <NavigationViewItem x:Name="Employee" Icon="People" Content="Employee" ToolTipService.ToolTip="empployee" Tag="WinUIApp1.Views.EmployeePage"/>
             <NavigationViewItem x:Name="Deps" Icon="Manage" Content="Departements" ToolTipService.ToolTip="departements" Tag="WinUIApp1.Views.DepartementsPage"/>
             <NavigationViewItem x:Name="Payments" Icon="Admin" Content="Payements" ToolTipService.ToolTip="payments" Tag="WinUIApp1.Views.PaymentPage"/>
         </NavigationView.MenuItems>
-        <Frame x:Name="contentFrame">
+        <Frame x:Name="contentFrame" CornerRadius="0">
             <Frame.ContentTransitions>
                 <TransitionCollection>
                     <NavigationThemeTransition/>

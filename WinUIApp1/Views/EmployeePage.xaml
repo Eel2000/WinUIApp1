@@ -11,8 +11,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.8*"/>
         </Grid.ColumnDefinitions>
 
         <Grid>
@@ -42,28 +42,25 @@
                       SelectionMode="None"
                       Loaded="empList_Loaded"
                       ItemClick="empList_ItemClick"
+                      ReorderMode="Enabled"
                       Grid.Row="2">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Employee">
-                            <Grid Margin="0,12,0,12" AutomationProperties.Name="{x:Bind FirstName}">
+                            <Grid x:Name="connectedElement" Margin="0,0,0,0" Grid.Column="1"  AutomationProperties.Name="{Binding}">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" MinWidth="100"/>
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-
-                                <!-- The image to connect between pages. -->
-                                <Image x:Name="connectedElement" Source="/Assets/john-doe.jpg" MaxHeight="100" Stretch="Fill"/>
-
-                                <StackPanel Margin="12,0,0,0" Grid.Column="1" >
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Firstname: " Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="Bold"/>
-                                        <TextBlock Text="{x:Bind FirstName}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="5,0,0,0"/>
-                                    </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Lastname: " Style="{ThemeResource CaptionTextBlockStyle}" FontWeight="Bold"/>
-                                        <TextBlock Text="{x:Bind LastName}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="5,0,0,0"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <SymbolIcon Symbol="Contact" Margin="0,0,10,0" VerticalAlignment="Center" Height="60"/>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <TextBlock Text="{x:Bind FirstName}" Style="{ThemeResource BodyStrongTextBlockStyle}" FontWeight="Bold"/>
+                                        <TextBlock Text="{x:Bind LastName}" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="5,0,0,0"/>
                                     </StackPanel>
                                 </StackPanel>
+                                
+                                <SymbolIcon x:Name="delIcon" Symbol="Delete" Foreground="Red" Grid.Column="2" PointerEntered="delIcon_PointerEntered" PointerExited="delIcon_PointerExited"/>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -71,6 +68,31 @@
             </Grid>
 
         </Grid>
+        <!--tips details-->
+        <Grid x:Name="SmokeGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" >
+            <Grid.Background>
+                <SolidColorBrush Color="{ThemeResource SystemChromeAltHighColor}" Opacity="0.8" />
+            </Grid.Background>
+            <Grid x:Name="destinationElement" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="400" BorderThickness="1" BorderBrush="{ThemeResource SystemAccentColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{ThemeResource SystemAccentColor}" Height="170">
+                    <TextBlock Text="Header" Style="{ThemeResource HeaderTextBlockStyle}" Margin="12" VerticalAlignment="Center" />
+                    <Button x:Name="closeBtn" Click="closeBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Height="40" Width="40" Margin="5" 
+                            ToolTipService.ToolTip="Close" AutomationProperties.Name="Close">
+                        <Button.Content>
+                            <SymbolIcon Symbol="Clear" />
+                        </Button.Content>
+                    </Button>
+                </Grid>
+                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" Grid.Row="1">
+                    <TextBlock Text="Content" Style="{ThemeResource BaseTextBlockStyle}" Margin="12" />
+                </Grid>
+            </Grid>
+        </Grid>
+
 
         <!--details side-->
         <Frame x:Name="depsDetails" Grid.Column="1">

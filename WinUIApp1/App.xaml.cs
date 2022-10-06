@@ -35,6 +35,8 @@ namespace WinUIApp1
             this.InitializeComponent();
         }
 
+        public static Window CurrentWindow { get; set; }
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
@@ -43,6 +45,7 @@ namespace WinUIApp1
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             m_window = new MainWindow();
+            CurrentWindow = m_window;
             m_window.Activate();
         }
 

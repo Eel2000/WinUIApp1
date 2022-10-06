@@ -12,15 +12,17 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="Assets\john-doe.jpg" />
+    <Content Remove="Assets\johndoe.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\DashboardPage.xaml" />
     <None Remove="Views\DepartementsPage.xaml" />
     <None Remove="Views\DetailsPages\DepartementDetailsPage.xaml" />
+    <None Remove="Views\DetailsPages\EmployeeDetailsPage.xaml" />
     <None Remove="Views\DialogsPages\LoadingDialogPage.xaml" />
     <None Remove="Views\EmployeePage.xaml" />
     <None Remove="Views\OperationPage\AddDepartementPage.xaml" />
+    <None Remove="Views\OperationPage\AddEmployeePage.xaml" />
     <None Remove="Views\PaymentPage.xaml" />
   </ItemGroup>
 
@@ -47,6 +49,16 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\DetailsPages\EmployeeDetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\OperationPage\AddEmployeePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\PaymentPage.xaml">

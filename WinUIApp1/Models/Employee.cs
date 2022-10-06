@@ -18,6 +18,19 @@ namespace WinUIApp1.Models
             ID = iD;
         }
 
+        public Employee(long iD, string firstName, string lastName, string dep, bool isDepChef, DateTime birthDay, string picture, string telephone, string emailAdresse)
+        {
+            ID = iD;
+            FirstName = firstName;
+            LastName = lastName;
+            Dep = dep;
+            IsDepChef = isDepChef;
+            BirthDay = birthDay;
+            Picture = picture;
+            Telephone = telephone;
+            EmailAdresse = emailAdresse;
+        }
+
         public long ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -25,5 +38,8 @@ namespace WinUIApp1.Models
         public bool IsDepChef { get; set; }
         public DateTime BirthDay { get; set; }
         public string Picture { get; set; }
+        public string Telephone { get; set; }
+        public string EmailAdresse { get; set; }
+        public string City { get; set; }
     }
 }

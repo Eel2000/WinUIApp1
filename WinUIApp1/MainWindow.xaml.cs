@@ -43,9 +43,30 @@ namespace WinUIApp1
                 contentFrame
                     .Navigate(Type.GetType(selected.Tag.ToString()), selected.Content,
                     new DrillInNavigationTransitionInfo());
-                nvMenu.Header = selected.Content;
+                //nvMenu.Header = selected.Content;
                 nvMenu.SelectedItem = selected;
             }
+        }
+
+        private void nvMenu_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            try
+            {
+                sender.SelectionChanged += Sender_SelectionChanged;
+                var stack = contentFrame.BackStack;
+                if (stack.Any())
+                    contentFrame.GoBack();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex, "window-back-button");
+            }
+        }
+
+        private void Sender_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            var current = args.SelectedItemContainer;
+            current.IsSelected = true;
         }
     }
 }
