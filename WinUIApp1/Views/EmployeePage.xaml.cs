@@ -51,15 +51,97 @@ namespace WinUIApp1.Views
             var rnd = new Random();
             employees = new ObservableCollection<Employee>
             {
-                new Employee("MULUMBA","KALALA","LAW",false,DateTime.Now,rnd.NextInt64(1000, 9999)),
-                new Employee("KISIMBA","MBO'O","MANAGEMENT",false,DateTime.Now,rnd.NextInt64(1000, 9999)),
-                new Employee("LUBALA","MUSONDA","LAW",false,DateTime.Now,rnd.NextInt64(1000, 9999)),
-                new Employee("LUBI","MBUI","IT",false,DateTime.Now,rnd.NextInt64(1000, 9999)),
-                new Employee("KALESA","MULANGA","LAW",false,DateTime.Now,rnd.NextInt64(1000, 9999)),
-                new Employee("MULUMBA","KALALA","HR",false,DateTime.Now, rnd.NextInt64(1000, 9999)),
-                new Employee("KAPEND","KASONG","MANAGEMENT",false,DateTime.Now, rnd.NextInt64(1000, 9999)),
-                new Employee("KLORES","FLOYER","GENERAL",true,DateTime.Now,rnd.NextInt64(1000, 9999)),
+                new Employee("MULUMBA","KALALA","LAW",false,RandomDay(),rnd.NextInt64(1000, 9999))
+                {
+                    UniversityStudies = "Software Engennering",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills=" C#, C++,C, .Net, WPF,AValonia,MAUI,Xamarin,Kotlin(Jetpack Compos),Javascript(*)",
+                },
+                new Employee("KISIMBA","MBO'O","MANAGEMENT",false,RandomDay(),rnd.NextInt64(1000, 9999))
+                 {
+                    UniversityStudies = "HR",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills = "*"
+                },
+                new Employee("LUBALA","MUSONDA","LAW",false,RandomDay(),rnd.NextInt64(1000, 9999))
+                 {
+                    UniversityStudies = "Software Engennering",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills="Archtict"
+                },
+                new Employee("LUBI","MBUI","IT",false,RandomDay(),rnd.NextInt64(1000, 9999))
+                 {
+                    UniversityStudies = "Software Engennering",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills="Javascrip,php"
+                },
+                new Employee("KALESA","MULANGA","LAW",false,RandomDay(),rnd.NextInt64(1000, 9999))
+                 {
+                    UniversityStudies = "Software Engennering",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills="*"
+                },
+                new Employee("MULUMBA","KALALA","HR",false,RandomDay(), rnd.NextInt64(1000, 9999))
+                 {
+                    UniversityStudies = "Software Engennering",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills="Java, Kotlin, Andoird*"
+                },
+                new Employee("KAPEND","KASONG","MANAGEMENT",false,RandomDay(), rnd.NextInt64(1000, 9999))
+                 {
+                    UniversityStudies = "Engennering",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills="Building"
+                },
+                new Employee("KLORES","FLOYER","GENERAL",true,RandomDay(),rnd.NextInt64(1000, 9999))
+                 {
+                    UniversityStudies = "Management",
+                    UniversityStudiesStart = RandomDay(),
+                    HighSchool = "Mathemathic and physics",
+                    HighSchoolStartDate = RandomDay(),
+                    Social  = RandomSocial(),
+                    Skills="*"
+                },
             };
+        }
+
+        private DateTime RandomDay()
+        {
+            var gen = new Random();
+            DateTime start = new DateTime(1995, 1, 1);
+            DateTime end = new DateTime(2021, 1, 1);
+            int range = (DateTime.Today - start).Days;
+            int rangeEnd = (DateTime.Today - end).Days;
+            return start.AddDays(gen.Next(rangeEnd, range));
+        }
+
+        private string RandomSocial()
+        {
+            string[] statusSocial = new[] { "Single", "Married", "Devorced", "Widow", "Widower" };
+            var rnd = new Random();
+            var index = rnd.Next(0, 4);
+            return statusSocial[index];
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)

@@ -17,99 +17,175 @@
                 </Grid.RowDefinitions>
                 <!--Header-->
                 <StackPanel Background="{StaticResource AppBarBackgroundThemeBrush}" Height="200" Orientation="Horizontal">
-                    <PersonPicture Initials="JD" Margin="20,0" Background="DarkGray"/>
+                    <PersonPicture DisplayName="{x:Bind employee.ToString()}" Margin="20,0" Background="DarkGray"/>
                     <StackPanel  VerticalAlignment="Center">
-                        <TextBlock Text="John Doe" FontWeight="ExtraBlack" FontSize="25"/>
-                        <TextBlock Text="IT departement" FontWeight="Light" FontSize="18"/>
+                        <TextBlock Text="{x:Bind employee.ToString()}" FontWeight="ExtraBlack" FontSize="25"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{x:Bind employee.Dep}" FontWeight="Light" FontSize="18"/>
+                            <TextBlock Text=" department" FontWeight="Light" FontSize="18"/>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
 
                 <!--Border-->
                 <Border BorderBrush="Gray" VerticalAlignment="Bottom" BorderThickness="1" Width="900" HorizontalAlignment="Stretch"/>
+                
+                <!--data-->
                 <ScrollViewer Grid.Row="1" IsEnabled="True" VerticalScrollBarVisibility="Auto">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <!--Contact-->
-                        <Grid Grid.Row="0">
+                    <StackPanel>
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-
-                            <StackPanel Orientation="Horizontal" Margin="20">
-                                <TextBlock Text="Contacts" FontWeight="ExtraBlack" FontSize="17"/>
-                            </StackPanel>
-
-                            <StackPanel Grid.Row="1">
-                                <StackPanel>
-                                    <TextBlock Text="Email Personal" Margin="20,0,0,0"/>
-                                    <TextBlock Text="john.doe@gmail.com" Margin="20,0,0,0" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Margin="0,20,0,0">
-                                    <TextBlock Text="Telephone" Margin="20,0,0,0"/>
-                                    <TextBlock Text="(243) 891-490-441" Margin="20,0,0,0" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Margin="0,20,0,0">
-                                    <TextBlock Text="Home address" Margin="20,0,0,0"/>
-                                    <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
-                                        <Paragraph>
-                                            894 Lubumbashi
-                                        </Paragraph>
-                                        <Paragraph>
-                                            C.Lubumbashi, Haut-katanga, D.R Congo
-                                        </Paragraph>
-                                    </RichTextBlock>
-                                </StackPanel>
-                            </StackPanel>
-
-                        </Grid>
-
-                        <!--border-->
-                        <Border Grid.Row="1" BorderBrush="WhiteSmoke" Width="800" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,20,0,0"/>
-
-                        <!--personal info-->
-                        <Grid Grid.Row="2" Margin="0,20,0,20">
-                            <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
+                            <!--Contact-->
+                            <Grid Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
 
-                            <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
-                                <TextBlock Text="Personal informations" FontWeight="ExtraBlack" FontSize="17"/>
-                            </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="20">
+                                    <TextBlock Text="Contacts" FontWeight="ExtraBlack" FontSize="17"/>
+                                </StackPanel>
 
-                            <StackPanel Grid.Row="1">
-                                <StackPanel>
-                                    <TextBlock Text="Birth day" Margin="20,0,0,0"/>
-                                    <TextBlock Text="Thursday, 6 October 2022" Margin="20,0,0,0" FontWeight="Bold"/>
+                                <StackPanel Grid.Row="1">
+                                    <StackPanel>
+                                        <TextBlock Text="Email Personal" Margin="20,0,0,0"/>
+                                        <TextBlock Text="{x:Bind employee.EmailAdresse}" Margin="20,0,0,0" FontWeight="Bold"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,20,0,0">
+                                        <TextBlock Text="Telephone" Margin="20,0,0,0"/>
+                                        <TextBlock Text="{x:Bind employee.Telephone}" Margin="20,0,0,0" FontWeight="Bold"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,20,0,0">
+                                        <TextBlock Text="Home address" Margin="20,0,0,0"/>
+                                        <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
+                                            <Paragraph>
+                                                <Run Text="{x:Bind employee.City}"/>
+                                            </Paragraph>
+                                            <Paragraph>
+                                                <Run Text="{x:Bind employee.Adresse}"/>
+                                            </Paragraph>
+                                        </RichTextBlock>
+                                    </StackPanel>
                                 </StackPanel>
-                                <StackPanel Margin="0,20,0,0">
-                                    <TextBlock Text="Work ID" Margin="20,0,0,0"/>
-                                    <TextBlock Text="N° 8978" Margin="20,0,0,0" FontWeight="Bold"/>
+
+                            </Grid>
+
+                            <!--border-->
+                            <Border Grid.Row="1" BorderBrush="WhiteSmoke" Width="600" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,20,20,0"/>
+
+                            <!--social info-->
+                            <Grid Grid.Row="2" Margin="0,20,0,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                                    <TextBlock Text="Personal informations" FontWeight="ExtraBlack" FontSize="17"/>
                                 </StackPanel>
-                                <StackPanel Margin="0,20,0,0">
-                                    <TextBlock Text="Experience" Margin="20,0,0,0"/>
-                                    <TextBlock Text="Software developer since 1998 at Genesis.corp" Margin="20,0,0,0" FontWeight="Bold"/>
+
+                                <StackPanel Grid.Row="1">
+                                    <StackPanel>
+                                        <TextBlock Text="Birth day" Margin="20,20,0,0"/>
+                                        <TextBlock Text="{x:Bind employee.BirthDay.ToLongDateString()}" Margin="20,0,0,0" FontWeight="Bold"/>
+                                    </StackPanel>
+                                    <StackPanel>
+                                        <TextBlock Text="Social status" Margin="20,20,0,0"/>
+                                        <TextBlock Text="{x:Bind employee.Social}" Margin="20,0,0,0" FontWeight="Bold"/>
+                                    </StackPanel>
                                 </StackPanel>
-                                <StackPanel Margin="0,20,0,0">
-                                    <TextBlock Text="Skills" Margin="20,0,0,0"/>
-                                    <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
-                                        <Paragraph>
-                                            C#, C++,C, .Net, WPF,AValonia,MAUI,Xamarin,Kotlin(Jetpack Compos),Javascript(*)
-                                        </Paragraph>
-                                        <Paragraph>
-                                            C.Lubumbashi, Haut-katanga, D.R Congo
-                                        </Paragraph>
-                                    </RichTextBlock>
+                            </Grid>
+
+                            <!--border-->
+                            <Border Grid.Row="3" BorderBrush="WhiteSmoke" Width="600" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,20,20,0"/>
+
+                            <!--studies info-->
+                            <Grid Grid.Row="4" Margin="0,20,0,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                                    <TextBlock Text="Studies informations" FontWeight="ExtraBlack" FontSize="17"/>
                                 </StackPanel>
-                            </StackPanel>
+
+                                <StackPanel Grid.Row="1">
+                                    <StackPanel Margin="0,20,0,0">
+                                        <TextBlock Text="High school" Margin="20,0,0,0"/>
+                                        <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
+                                            <Paragraph TextIndent="10">
+                                                <Run Text="I."/>
+                                                <Run Text="{x:Bind employee.HighSchool}"/>
+                                                <Run>,From </Run>
+                                                <Run Text="{x:Bind employee.HighSchoolStartDate.Date.Year}"></Run>
+                                                <Run> - </Run>
+                                                <Run Text="{x:Bind employee.HighSchoolEndDate.Date.Year}"></Run>
+                                            </Paragraph>
+                                        </RichTextBlock>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,20,0,0">
+                                        <TextBlock Text="University" Margin="20,0,0,0"/>
+                                        <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
+                                            <Paragraph TextIndent="10">
+                                                <Run Text="II."/>
+                                                <Run Text="{x:Bind employee.UniversityStudies}"/>
+                                                <Run>,From </Run>
+                                                <Run Text="{x:Bind employee.UniversityStudiesStart.Date.Year}"></Run>
+                                                <Run> - </Run>
+                                                <Run Text="{x:Bind employee.UniversityStudiesEnd.Date.Year}"></Run>
+                                            </Paragraph>
+                                        </RichTextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+
+                            <!--border-->
+                            <Border Grid.Row="5" BorderBrush="WhiteSmoke" Width="600" BorderThickness="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="20,20,20,0"/>
+
+                            <!--work info-->
+                            <Grid Grid.Row="6" Margin="0,20,0,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
+                                    <TextBlock Text="Profesional informations" FontWeight="ExtraBlack" FontSize="17"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1">
+                                    <StackPanel Margin="0,20,0,0">
+                                        <TextBlock Text="Work ID" Margin="20,0,0,0"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="N°" Margin="20,0,0,0" FontWeight="Bold"/>
+                                            <TextBlock Text="{x:Bind employee.ID}" Margin="20,0,0,0" FontWeight="Bold"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,20,0,0">
+                                        <TextBlock Text="Experience" Margin="20,0,0,0"/>
+                                        <TextBlock Text="Software developer since 1998 at Genesis.corp" Margin="20,0,0,0" FontWeight="Bold"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,20,0,0">
+                                        <TextBlock Text="Skills" Margin="20,0,0,0"/>
+                                        <RichTextBlock Margin="20,0,0,0" FontWeight="Bold">
+                                            <Paragraph>
+                                                <Run Text="{x:Bind employee.Skills}"/>
+                                            </Paragraph>
+                                        </RichTextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </StackPanel>
                 </ScrollViewer>
             </Grid>
         </StackPanel>
